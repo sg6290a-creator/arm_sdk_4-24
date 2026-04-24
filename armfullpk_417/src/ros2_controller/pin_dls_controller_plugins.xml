@@ -1,0 +1,10 @@
+<library path="pin_dls_controller">
+  <class name="pin_dls_controllers/JointGroupDLSController"
+         type="pin_dls_controllers::JointGroupDLSController"
+         base_class_type="controller_interface::ControllerInterface">
+    <description>
+      Damped Least Squares (DLS) joint position controller.
+      Subscribes to geometry_msgs/Twist and commands joint positions via DLS IK.
+    </description>
+  </class>
+</library>

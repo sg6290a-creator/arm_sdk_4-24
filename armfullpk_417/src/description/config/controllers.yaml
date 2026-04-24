@@ -1,0 +1,30 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 200  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    dls_controller:
+      type: rbdl_dls_controllers/JointGroupDLSController
+
+
+dls_controller:
+  ros__parameters:
+    joints:
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - elbow_joint
+      - wrist_1_joint
+      - wrist_2_joint
+      - wrist_3_joint
+
+    interface_name: position
+    end_effector_name: gripper_palm
+
+    # 포즈 에러 → 트위스트 변환 게인
+    kp_pos: 1.0   # 위치 에러 게인 (m/s per m)
+    kp_rot: 1.0   # 회전 에러 게인 (rad/s per rad)
+
+    # 목표 도달 판단 임계값 (m)
+    goal_tolerance: 0.005
